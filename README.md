@@ -1,1 +1,1 @@
-## Streaming media with Android
+## Streaming audio medias with Android
