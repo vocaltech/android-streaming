@@ -34,7 +34,6 @@ class WebScraping {
 
                 //
                 // Last hour playlist
-                // --> 4th : <div class="view-content">
                 //
                 val lastHourElements = viewContents[3].allElements
                 val playlistLastHour = documentUrl.playlistLastHour(lastHourElements)
@@ -62,8 +61,8 @@ class WebScraping {
         }
 
         //
-        // Smoothjazz Now Playing
-        // 2nd : <div class="view-content">
+        // Now Playing Music
+        // <div class="view-content">  ---> 2nd
         //
         private fun String.nowPlayingMusic(viewContents: Elements): Music { // Extension function
             val nowArtistName = viewContents[1].select("span.artist-name").text()
@@ -83,6 +82,10 @@ class WebScraping {
             )
         }
 
+        //
+        // Last hour playlist
+        // <div class="view-content">  ---> 4th
+        //
         private fun String.playlistLastHour(elements: Elements): List<Lazy<Music>>  {
             var i = 0
             var music = Music()
