@@ -6,7 +6,7 @@ import org.jsoup.select.Elements
 import java.net.URL
 
 class WebScraping {
-    private data class Music(
+    data class Music(
         var artistName: String = "",
         var albumTitle: String = "",
         var songTitle: String = "",
@@ -64,7 +64,7 @@ class WebScraping {
         // Now Playing Music
         // <div class="view-content">  ---> 2nd
         //
-        private fun String.nowPlayingMusic(viewContents: Elements): Music { // Extension function
+        fun String.nowPlayingMusic(viewContents: Elements): Music { // Extension function
             val nowArtistName = viewContents[1].select("span.artist-name").text()
             val nowAlbumTitle = viewContents[1].select("span.album-title").text()
             val nowSongTitle = viewContents[1].select("span.song-title").text()
@@ -86,7 +86,7 @@ class WebScraping {
         // Last hour playlist
         // <div class="view-content">  ---> 4th
         //
-        private fun String.playlistLastHour(elements: Elements): List<Lazy<Music>>  {
+        fun String.playlistLastHour(elements: Elements): List<Lazy<Music>>  {
             var i = 0
             var music = Music()
 
